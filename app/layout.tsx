@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description:
     "Always showing up at 8 AM. A crew that feels like family. Training hard, partying harder, loving each other always.",
 };
-export const viewport: Viewport = { themeColor: "#000000" };
+export const viewport: Viewport = { themeColor: "#000000", colorScheme: "dark" };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
