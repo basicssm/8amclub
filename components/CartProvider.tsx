@@ -1,6 +1,7 @@
 "use client";
 import { createContext, useCallback, useContext, useEffect, useRef, useState } from "react";
 import { PRODUCTS } from "@/lib/products";
+import { useLang } from "./LangProvider";
 
 type Item = { id: string; size: string; qty: number };
 type Ctx = {
@@ -27,6 +28,7 @@ export const useCart = () => {
 const KEY = "8am-cart";
 
 export default function CartProvider({ children }: { children: React.ReactNode }) {
+  const { t } = useLang();
   const [items, setItems] = useState<Item[]>([]);
   const [open, setOpen] = useState(false);
   const [toastMsg, setToastMsg] = useState("");
@@ -68,7 +70,7 @@ export default function CartProvider({ children }: { children: React.ReactNode }
         ? prev.map((i) => (i === found ? { ...i, qty: i.qty + 1 } : i))
         : [...prev, { id, size, qty: 1 }];
     });
-    toast("Added to bag");
+    toast(t.toast.added);
   };
   const change = (idx: number, d: number) =>
     setItems((prev) => prev.flatMap((it, k) => (k !== idx ? [it] : it.qty + d < 1 ? [] : [{ ...it, qty: it.qty + d }])));

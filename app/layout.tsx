@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Anton, Space_Mono } from "next/font/google";
 import CartProvider from "@/components/CartProvider";
+import LangProvider from "@/components/LangProvider";
 import CartDrawer from "@/components/CartDrawer";
 import Nav from "@/components/Nav";
 import "./globals.css";
@@ -19,11 +20,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${anton.variable} ${mono.variable}`}>
       <body>
-        <CartProvider>
-          <Nav />
-          {children}
-          <CartDrawer />
-        </CartProvider>
+        <LangProvider>
+          <CartProvider>
+            <Nav />
+            {children}
+            <CartDrawer />
+          </CartProvider>
+        </LangProvider>
       </body>
     </html>
   );
