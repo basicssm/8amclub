@@ -24,6 +24,10 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:99;opa
 .nav__logo span{font-size:9px;background:#fff;color:#000;padding:2px 4px;transform:rotate(-3deg) translateY(14px);letter-spacing:.05em}
 .nav nav{display:flex;gap:clamp(14px,3vw,36px);align-items:center;font-size:12px;text-transform:uppercase;letter-spacing:.08em}
 .nav nav a:hover{text-decoration:line-through}
+.nav__lang{display:flex;gap:2px;font-size:11px;letter-spacing:.08em}
+.nav__lang button{opacity:.45;padding:2px 5px;transition:opacity .2s}
+.nav__lang button:hover,.nav__lang button.is-on{opacity:1}
+.nav__lang button.is-on{text-decoration:underline;text-underline-offset:4px}
 .nav__cart b{display:inline-grid;place-items:center;min-width:20px;height:20px;border:1px solid #fff;border-radius:20px;font-weight:700;font-size:11px;margin-left:4px;padding:0 4px}
 @media(max-width:640px){.nav nav a{display:none}}
 
